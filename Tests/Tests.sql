@@ -13,10 +13,11 @@ CALL rendir_horas(1,10);
 
 SELECT * FROM clientes;
 
-CALL liquidacion_mensual(1,1,"Tester",20);
+CALL liquidacion_mensual(1,1,"Tester",20,"Junio");
+CALL liquidacion_mensual(1,1,"Tester",10,"Julio");
 
 SELECT * FROM horas_liquidadas;
 
-CALL ajuste_liquidacion(1,1,"Tester",-20);
+CALL ajuste_liquidacion(1,1,"Tester",-20,"Junio");
 
 SELECT * FROM ajuste_horas;

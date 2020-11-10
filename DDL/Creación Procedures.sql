@@ -8,7 +8,7 @@ END
 $$
 
 delimiter $$
-CREATE PROCEDURE liquidación_mensual(IN idproyecto INT,IN idcliente INT, IN tipo VARCHAR(50),IN HORAS INT)
+CREATE PROCEDURE liquidación_mensual(IN idproyecto INT,IN idcliente INT, IN tipo VARCHAR(50),IN HORAS INT,IN MES VARCHAR(50))
 BEGIN
 	
 	SELECT nombre INTO @Nvalue FROM clientes
@@ -17,25 +17,18 @@ BEGIN
 	SELECT nombre_proyecto INTO @Pvalue FROM proyectos
 	WHERE id=idproyecto;
 	
-	INSERT INTO horas_liquidadas (id_proyecto,nombre_proyecto,id_cliente,nombre_cliente,tipo_de_hora,cantidad)
-	VALUES(idproyecto,@Pvalue,idcliente,@Nvalue,tipo,HORAS);
+	INSERT INTO horas_liquidadas (id_proyecto,nombre_proyecto,id_cliente,nombre_cliente,tipo_de_hora,cantidad,mes)
+	VALUES(idproyecto,@Pvalue,idcliente,@Nvalue,tipo,HORAS,MES);
 END
 $$
 
 delimiter $$
-CREATE PROCEDURE ajuste_liquidacion(IN idproyecto INT, IN idcliente INT, IN tipo VARCHAR(50),IN HORAS INT)
-BEGIN
-
-	SELECT nombre INTO @Nvalue FROM clientes
-	WHERE idcliente=id;
-	
-	SELECT nombre_proyecto INTO @Pvalue FROM proyectos
-	WHERE id=idproyecto;
-	
-	INSERT INTO ajuste_horas (id_proyecto,nombre_proyecto,id_cliente,nombre_cliente,tipo_de_hora,cantidad)
-	VALUES(idproyecto,@Pvalue,idcliente,@Nvalue,tipo,HORAS);
-
-END
+CREATE PROCEDURE ajuste_liquidacion(IN idproyecto INT, IN idcliente INT, IN tipo VARCHAR(50),IN HORAS INT,IN MES VARCHAR(50)) BEGIN
+SELECT nombre INTO @Nvalue
+FROM clientes
+WHERE idcliente=id;
+SELECT nombre_proyecto INTO @Pvalue
+FROM proyectos
+WHERE id=idproyecto;
+INSERT INTO ajuste_horas (id_proyecto,nombre_proyecto,id_cliente,nombre_cliente,tipo_de_hora,cantidad,mes) VALUES(idproyecto,@Pvalue,idcliente,@Nvalue,tipo,HORAS,MES); END
 $$
-
-DROP PROCEDURE ajuste_liquidacion
