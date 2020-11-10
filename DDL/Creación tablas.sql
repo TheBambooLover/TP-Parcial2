@@ -35,9 +35,9 @@ CREATE TABLE horas_liquidadas(
 	nombre_cliente VARCHAR(50) NOT NULL,
 	tipo_de_hora VARCHAR(50) NOT NULL,
 	cantidad INT NOT NULL,
-	mes VARCHAR (50)
+	mes VARCHAR (50),
+	eliminado BOOLEAN NOT NULL DEFAULT 0
 );
-
 
 CREATE TABLE ajuste_horas(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
