@@ -49,3 +49,11 @@ CREATE TABLE ajuste_horas(
 	cantidad INT NOT NULL,
 	mes VARCHAR (50)
 );
+
+CREATE TABLE auditoria_horas(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	modificó VARCHAR(50) NOT NULL,
+	cant_anterior INT NOT NULL,
+	cant_nueva INT NOT NULL,
+	hora datetime NOT null
+);

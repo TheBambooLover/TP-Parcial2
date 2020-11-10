@@ -21,3 +21,5 @@ SELECT * FROM horas_liquidadas;
 CALL ajuste_liquidacion(1,1,"Tester",-20,"Junio");
 
 SELECT * FROM ajuste_horas;
+
+SELECT * FROM auditoria_horas;
