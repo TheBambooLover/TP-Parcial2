@@ -3,7 +3,6 @@ create table proyectos (
   id_cliente INT NOT NULL,
   nombre_proyecto varchar(50) not null
 );
-parcial2
 CREATE TABLE participantes(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(50) NOT NULL,

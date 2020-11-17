@@ -1,5 +1,3 @@
-SELECT * FROM user;
-
 --
 CREATE user auditor@'localhost' IDENTIFIED BY 'claveauditor';
 CREATE user administrador@'localhost' IDENTIFIED BY 'claveadministrador';
